@@ -1,0 +1,102 @@
+/**
+*! Written by AstralDev on Sat Aug 07 04:09
+
+*! When changing the colors only edit the ones in :root
+
+*! The width of 'button.w-2x' must be = width of 'button' * 2 
+*! The width of '.main-box' = (width of 'button' + padding of 'button') * number of buttons on the row
+*! The width of '.joined' = (width of 'button' * number of buttons) + (padding of buttons*4 - 1)
+
+*! The height of 'button.h-2x' must be = height of 'button' * 2 
+*! The height of '.main-box' = (height of 'button' + padding of 'button') * number of buttons on the column
+*! The height of '.joined' can vary :)
+
+*! The padding of 'button.w-2x' must be = padding of 'button' * 2
+*! The padding of '.joined' = padding of 'button' * 2
+**/
+*{
+  box-sizing: border-box;
+}
+:root{
+  --color: #fff;
+  --btn-background: rgb(41, 90, 196);
+  --btn-border: rgb(61, 100, 200);
+  --btn-shadow: rgb(161, 161, 161);
+  --body-background-color: linear-gradient(to right, rgb(39, 42, 59), rgb(41,41,41));
+  --btn-hover-outline: rgb(48, 131, 255);
+}
+button{
+  border: 1px solid var(--btn-border);
+  background-color: var(--btn-background);
+  padding: 6px;
+  color: var(--color);
+  width: 45px;
+  height: 45px;
+  border-radius: 6px;
+  box-shadow: 0 0.4px 1.45px 0 var(--btn-shadow);
+}
+button:hover{
+  box-shadow: 0 0 0 0.1em var(--btn-hover-outline);
+}
+.joined .result-box{
+  border: none;
+  padding: 8px;
+  margin: 0;
+  width: 100%;
+  overflow: hidden;
+  resize: none;
+  font-size: 16.5px;
+  background: var(--btn-background);
+  color: var(--color);
+}
+.joined *:focus{
+  border: none;
+  outline: none;
+}
+.joined{
+  border-radius: 4px;
+  border: 3px solid var(--btn-border);
+  width: 248px;
+  margin-right: auto;
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  height: 30%;
+}
+.joined .result-box:last-child{
+  text-align: right;
+  border-top: 3px solid var(--btn-border);
+  height: 45%;
+}
+.result-box.error{
+  color: rgb(255, 52, 52);
+}
+.joined .result-box:first-child{
+  height: 60%;
+}
+button.w-2x{
+  width: 96px;
+  padding: 12px;
+}
+button.h-2x{
+  height: 96px;
+  padding: 12px;
+}
+.w-full{
+  width: 100%;
+}
+.main-box{
+  width: 250px;
+  height: 300px;
+  padding: 2.5px;
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  bottom: 12.5%;
+  top: 12.5%;
+  left: 7.5%;
+}
+body{
+  background: var(--body-background-color);
+}
